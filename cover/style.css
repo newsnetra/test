@@ -1,0 +1,384 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.framer {
+    position: relative; /* Ensure children with position:sticky work correctly */
+    background-color: black;
+}
+
+.RAB {
+  position: fixed;
+  bottom: 0;
+  max-width: 30vw;
+  left: 35vw;
+  object-fit: contain;
+}
+.body-count-placeholder {
+  display: none;
+  height: 0;
+}
+.BODY-COUNT {
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+    font-family: "Matiz-Regular", Helvetica;
+    font-weight: 400;
+    color: red;
+    font-size: 7vw;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 10vw;
+    position: fixed;
+    z-index: 1;
+}
+
+.rab-container {
+  height: 200px; /* adjust this value */
+  width: 100%;
+}
+
+.body-count-container {
+  height: 200px; /* adjust this value */
+  width: 100%;
+}
+
+
+
+
+/* COVER STARTS */
+.frame {
+  display: grid;
+  width: 100vw;
+  height: 200vh;
+  position: relative;
+  overflow: hidden;
+  
+}
+
+
+.frame .overlap {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.frame .overlap-1 {
+  position: absolute; 
+  max-width: 13vw; 
+  height: auto; 
+  top: 10vh; 
+  left: 37vw; 
+  object-fit: contain;
+}
+
+.frame .overlap-2 {
+  position: absolute;
+  max-width: 13vw;
+  height: auto;
+  top: 15vh;
+  left: 52vw;
+  object-fit: contain;
+}
+
+.frame .overlap-3 {
+  position: absolute;
+  max-width: 10vw;
+  height: auto;
+  bottom: 5vh;
+  right: 12vw;
+  object-fit: contain;
+}
+
+.frame .overlap-4 {
+  position: absolute;
+  max-width: 13vw;
+  height: auto;
+  bottom: 27vh;
+  right: 17vw;
+  object-fit: contain;
+}
+
+.frame .overlap-5 {
+  position: absolute;
+  max-width: 15vw;
+  height: auto;
+  top: 10vh;
+  right: 10vw;
+  object-fit: contain;
+}
+
+.frame .overlap-6 {
+  position: absolute;
+  max-width: 25vw;
+  height: auto;
+  top: 10vh;
+  left: 7vw;
+  object-fit: contain;
+}
+
+.frame .overlap-7 {
+  position: absolute;
+  max-width: 13vw;
+  height: auto;
+  top: 30vh;
+  left: 15vw;
+  object-fit: contain;
+}
+
+.frame .overlap-8 {
+  position: absolute;
+  max-width: 11vw;
+  height: auto;
+  bottom: 15vh;
+  left: 8vw;
+  object-fit: contain;
+}
+
+.frame .group-wrapper {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 100vh;
+  left: 0;
+
+}
+
+.frame .group-1 {
+  position: absolute;
+  max-width: 14vw;
+  height: auto;
+  top: 5vh;
+  left: 10vw;
+  object-fit: contain;
+}
+
+.frame .group-2 {
+  position: absolute;
+  max-width: 20vw;
+  height: auto;
+  top: 45vh;
+  left: 12vw;
+  object-fit: contain;
+}
+
+.frame .group-3 {
+  position: absolute;
+  max-width: 15vw;
+  height: auto;
+  bottom: 2vh;
+  right: 7vw;
+  object-fit: contain;
+}
+
+.frame .group-4 {
+  position: absolute;
+  max-width: 14vw;
+  height: auto;
+  bottom: 8vh;
+  left: 10vw;
+  object-fit: contain;
+}
+
+.frame .group-5 {
+  position: absolute;
+  max-width: 13vw;
+  height: auto;
+  top: 10vh;
+  right: 10vw;
+  object-fit: contain;
+}
+
+.frame .group-6 {
+  position: absolute;
+  max-width: 12vw;
+  height: auto;
+  top: 40vh;
+  right: 10vw;
+  object-fit: contain;
+}
+
+article {
+  z-index: 2;  /* Ensures that the article will stack above .BODY-COUNT when it's relative */
+  position: relative; 
+  margin-top: 300px;
+}
+
+article p {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  font-size: 100px;
+}
+
+@media only screen and (max-width: 912px) {
+
+  .frame .group-wrapper {
+height: 80vh;
+top: 110vh;
+
+  }
+
+  .frame .RAB {
+    max-width: 45vw;
+    left: 30vw;
+  }
+  .frame .overlap-6 {
+    max-width: 50vw;
+    top: 5vh;
+    left: 5vw;
+  }
+  
+  .frame .overlap-2 {
+  top: 4vh;
+  max-width: 30vw;
+  left: 60vw;
+  }
+
+  .frame .overlap-7 {
+
+    top: 22vh;
+    left: 5vw;
+    max-width: 25vw;
+  }
+
+  .frame .overlap-1 {
+    top: 20vh;
+    left: 33vw;
+    max-width: 25vw;
+  }
+
+  .frame .overlap-3 {
+    top: 55vh;
+    left: 65vw;
+    max-width: 20vw;
+  }
+  .frame .overlap-4 {
+    top: 35vh;
+    left: 65vw;
+    max-width: 22vw;
+  }
+
+  .frame .overlap-5 {
+
+    max-width: 22vw;
+    top: 15vh;
+    left: 65vw;
+  }
+
+  .frame .overlap-8 {
+  
+    top: 35vh;
+    left: 3vw;
+    max-width: 22vw;
+  }
+
+  .frame .group-1 {
+    top: 15vh;
+    left: 5vw;
+    max-width: 20vw;
+  }
+  .frame .group-2 {
+    top: 14vh;
+    left: 55vw;
+    max-width: 35vw;
+  }
+
+  .frame .group-4 {
+    top: 22vh;
+    left: 50vw;
+    max-width: 20vw;
+  }
+  .frame .group-3 {
+  top: 40vh;
+  left: 67vw;
+  max-width: 26vw;
+  }
+.groupper {
+  top:10vh;
+  position: absolute;
+}
+
+.frame .group-5 {
+  top: 40vh;
+  left: 6vw;
+  max-width: 18vw;
+}
+
+.frame .group-6 {
+  top: 40vh;
+  left: 40vw;
+  max-width: 20vw;
+}
+
+  /* Adjust the BODY-COUNT font-size for mobile */
+  .frame .BODY-COUNT {
+    font-size: 10vw; 
+  }
+
+}
+
+@media only screen and (max-width: 414px) {
+  .frame .overlap-1 {
+    max-width: 29vw;
+}
+.frame .overlap-2 {
+  max-width: 35vw;
+}
+.frame .overlap-3 {
+
+  max-width: 23vw;
+}
+
+.frame .overlap-4 {
+  max-width: 27vw;
+}
+
+.frame .overlap-5 {
+  max-width: 27vw;
+}
+
+.frame .overlap-6 {
+  max-width: 55vw;
+}
+
+.frame .overlap-7 {
+  max-width: 28vw;}
+
+  .frame .overlap-8 {
+    max-width: 24vw;
+  }
+
+
+.frame .group-1 {
+  max-width: 25vw;
+}
+
+.frame .group-2 {
+  left: 40vw;
+}
+
+.frame .group-4 {
+
+    left: 60vw;
+    max-width: 25vw;
+}
+
+.frame .group-5 {
+top: 34vh;
+max-width: 23vw;
+}
+
+.frame .group-6 {
+top: 34vh;
+max-width: 23vw;
+}
+
+}
+/* COVER ENDS */

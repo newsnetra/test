@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <div class="framer">
+    <div class="frame">
+      <div class="overlap">
+        <img class="overlap-1" data-speed="0.1" src="img/ecj3-3ss-0002-group-3.png" />
+        <img class="overlap-2" data-speed="0.2" src="img/ecj3-3ss-0005-group-14.png" />
+        <img class="overlap-3" data-speed="0.3" src="img/ecj3-3ss-0006-group-6.png" />
+        <img class="overlap-4" data-speed="0.4" src="img/ecj3-3ss-0007-group-16.png" />
+        <img class="overlap-5" data-speed="0.1" src="img/ecj3-3ss-0003-group-4.png" />
+        <img class="overlap-6" data-speed="0.2" src="img/ecj3-3ss-0001-group-2.png" />
+        <img class="overlap-7" data-speed="0.3" src="img/ecj3-3ss-0004-group-15.png" />
+        <img class="overlap-8" data-speed="0.4" src="img/ecj3-3ss-0008-group-17.png" />
+      </div>
+      <div class="rab-container">
+        <img class="RAB" src="img/ecj3-3ss-0000-layer-26.png" />
+      </div>
+      <div class="group-wrapper">
+        <img class="group-1" data-speed="0.01" src="img/ecj3-3ss-0009-group-7.png" />
+        <img class="group-2" data-speed="0.01" src="img/ecj3-3ss-0010-group-12.png" />
+        <img class="group-3" data-speed="0.02" src="img/ecj3-3ss-0011-group-10.png" />
+        <img class="group-4" data-speed="0.01" src="img/ecj3-3ss-0012-group-8.png" />
+        <img class="group-5" data-speed="0.02" src="img/ecj3-3ss-0014-group-9.png" />
+        <img class="group-6" data-speed="0.01" src="img/ecj3-3ss-0013-group-13.png" />
+
+      </div>
+      <div class="body-count-placeholder"></div>
+
+      <div class="body-count-container"> <!-- New container for the BODY-COUNT -->
+        <div class="BODY-COUNT" data-delay="200">BODY<br />COUNT</div>
+      </div>
+
+    </div>
+  </div>
+
+  <article>
+    <p> paragraph </p>
+    <p> paragraph </p>
+    <p> paragraph </p>
+    <p> paragraph </p>
+    <p> paragraph </p>
+    <p> paragraph </p>
+    <p> paragraph </p>
+    <p> paragraph </p>
+    <p> paragraph </p>
+    <p> paragraph </p>
+    <p> paragraph </p>
+    <p> paragraph </p>
+    <p> paragraph </p>
+    <p> paragraph </p>
+    <p> paragraph </p>
+    <p> paragraph </p>
+  </article>
+
+
+
+  <script>
+
+
+    document.addEventListener('scroll', function () {
+      const overlapRect = document.querySelector('.overlap').getBoundingClientRect();
+      const groupWrapperRect = document.querySelector('.group-wrapper').getBoundingClientRect();
+      const rabElement = document.querySelector('.RAB');
+      const bodyCountElement = document.querySelector('.BODY-COUNT');
+
+      if (overlapRect.bottom <= 0) {
+        // Calculate the distance from the top of the viewport to where the overlap div ended
+        const rabOffset = -overlapRect.bottom;
+
+        // Apply this offset to the bottom position of the RAB element
+        rabElement.style.bottom = `${rabOffset}px`;
+
+        // Make BODY-COUNT sticky
+        bodyCountElement.style.position = 'fixed';
+        bodyCountElement.style.top = '0px';
+        bodyCountElement.style.left = '0px';
+        bodyCountElement.style.right = '0px';
+        bodyCountElement.style.marginLeft = 'auto';
+        bodyCountElement.style.marginRight = 'auto';
+
+      } else {
+        rabElement.style.bottom = '0px';
+        bodyCountElement.style.position = 'relative';
+      }
+
+      if (groupWrapperRect.bottom <= 0) {
+        // Calculate the distance from the top of the viewport to where the group-wrapper div started
+        const bodyCountOffset = groupWrapperRect.bottom;
+        bodyCountElement.style.top = `${bodyCountOffset}px`;
+        // bodyCountElement.style.top = 'unset';
+
+      }
+
+      // Parallax effect
+      const framerImages = document.querySelectorAll('.framer img');
+
+      framerImages.forEach(img => {
+        const speed = img.getAttribute('data-speed');
+        const offset = window.scrollY * speed;
+
+        img.style.transform = `translateY(-${offset}px)`;
+      });
+
+
+    });
+
+
+  </script>
+
+</body>
+
+
+</html>

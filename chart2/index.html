@@ -1,0 +1,447 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Charts Toggle</title>
+    <style>
+        g .domain {
+            stroke: none;
+        }
+
+        .barVisual .tick line {
+            stroke: none;
+        }
+
+        .barVisual .text {
+            font-size: 12px;
+            fill: #000000;
+        }
+
+        .barVisual text {
+            font-size: 13px;
+            fill: #000000;
+        }
+
+        .barVisual .bar {
+            fill: #e24821;
+        }
+
+        .bar:first-child {
+            fill: #e24821;
+        }
+
+        .barVisual .container {
+            max-width: 960px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .barVisual {
+            max-width: 960px;
+            display: block;
+            margin: 0 auto;
+            font-family: "gordita", helvetica, helvetica-neue, arial, sans-serif;
+        }
+
+        .barVisual .chart_meta {
+            margin: 15px 0;
+        }
+
+        .barVisual h1 {
+            font-family: Georgia, "Times New Roman", Times, serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: inherit;
+            line-height: 1.3;
+            text-rendering: optimizelegibility;
+            margin: 0;
+        }
+
+        .barVisual h2 {
+            font-size: 0.8125rem;
+            color: #848484;
+            line-height: 1.62;
+            width: 100%;
+            margin-top: 0;
+        }
+
+        .barVisual p {
+            font-size: 0.8125rem;
+            color: #848484;
+            line-height: 1.62;
+            padding: 10px 2px;
+            width: 100%;
+        }
+
+        .barVisual .notes::before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: #efefef;
+        }
+
+        .barVisual .notes p {
+            font-size: 0.5rem;
+            margin: 0;
+            padding: 0;
+            text-align: right;
+        }
+
+        .barVisual .hidden {
+            display: none;
+        }
+
+
+        .barVisual button {
+            background-color: #e24821;
+            /* Color taken from your bar fill */
+            color: #FFFFFF;
+            /* White text color */
+            border: none;
+            border-radius: 5px;
+            /* Rounded corners */
+            padding: 10px 15px;
+            /* Top-bottom and left-right padding */
+            font-family: "gordita", helvetica, helvetica-neue, arial, sans-serif;
+            /* Font family */
+            font-size: 0.9rem;
+            /* Font size */
+            margin-right: 10px;
+            /* Spacing between buttons */
+            cursor: pointer;
+            /* Change cursor to hand icon on hover */
+            transition: background-color 0.3s;
+            /* Transition effect */
+        }
+
+        .barVisual button:hover {
+            background-color: #fdbaaa;
+            /* Slightly darker shade on hover */
+        }
+
+        .barVisual button.active {
+            background-color: #fdbaaa;
+            /* Slightly darker shade for the active chart's button */
+        }
+
+        .tooltip {
+
+            border: 1px solid #000;
+            padding: 4px;
+            background-color: white;
+            font-size: 10px;
+            /* Makes sure tooltip content stays in a single line */
+        }
+
+        .tooltip p {
+            text-transform: none;
+            color: #e24821;
+            line-height: 1;
+            padding: 0;
+            border-bottom: #000 1px solid;
+        }
+
+        .barVisual .axis path,
+        .barVisual .axis line {
+            fill: none;
+            stroke: grey;
+            shape-rendering: crispEdges;
+        }
+
+        .barVisual .axis text {
+            font-family: "Arial", sans-serif;
+            font-size: 12px;
+            fill: black;
+        }
+    </style>
+</head>
+
+
+
+
+<body>
+    <div class="tooltip" style="position: absolute; visibility: hidden;"></div>
+    <div class="barVisual">
+        <button onclick="showChart('chart1')">Actual Numbers</button>
+        <button onclick="showChart('chart2')">Per 100,000 Population</button>
+
+        <div id="chart1">
+            <div class="chart_meta">
+            <h1>Top 10 Districts by Deaths in Actual Numbers</h1>
+            <h2>Every district in Bangladesh experienced at least one fatality, but some districts experienced more counts.</h2>
+        </div>
+            <div class="container"></div>
+            <div class="notes">
+                <p>Source: Netra News</p>
+            </div>
+        </div>
+
+        <div id="chart2" style="display: none;">
+            <div class="chart_meta">
+            <h1>Top 10 Districts by Deaths Per 100k Population</h1>
+            <h2>Some districts were affected disproportionately by the number of fatalities.</h2>
+        </div>
+            <div class="container2"></div>
+            <div class="notes">
+                <p>Source: Netra News</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- load the d3.js library -->
+    <script src="//d3js.org/d3.v4.min.js"></script>
+</body>
+
+
+<script>
+
+
+    const enrollmentData = [
+        {
+            district: "Dhaka",
+            enrollment: 338
+        },
+        {
+            district: "Cox's Bazar",
+            enrollment: 335
+        },
+        {
+            district: "Chittagong",
+            enrollment: 140
+        },
+        {
+            district: "Kushtia",
+            enrollment: 129
+        },
+        {
+            district: "Bagerhat",
+            enrollment: 110
+        },
+        {
+            district: "Comilla",
+            enrollment: 89
+        },
+        {
+            district: "Satkhira",
+            enrollment: 85
+        },
+        {
+            district: "Jessore",
+            enrollment: 85
+        },
+        {
+            district: "Khulna",
+            enrollment: 84
+        },
+        {
+            district: "Mymensingh",
+            enrollment: 62
+        }
+    ];
+
+    const enrollmentRate = [
+        {
+            district: "Cox's Bazar",
+            rate: 11.87
+        },
+        {
+            district: "Bagerhat",
+            rate: 6.82
+        },
+        {
+            district: "Kushtia",
+            rate: 6.00
+        },
+        {
+            district: "Satkhira",
+            rate: 3.87
+        },
+        {
+            district: "Meherpur",
+            rate: 3.69
+        },
+        {
+            district: "Khulna",
+            rate: 3.21
+        },
+        {
+            district: "Chuadanga",
+            rate: 3.08
+        },
+        {
+            district: "Joypurhat",
+            rate: 2.93
+        },
+        {
+            district: "Bandarban",
+            rate: 2.91
+        },
+        {
+            district: "Jessore",
+            rate: 2.76
+        }
+    ];
+
+    var margin = { top: 0, right: 50, bottom: 30, left: 150 };
+    var width = 700 - margin.left - margin.right;
+    var height = 250 - margin.top - margin.bottom;
+    var tooltip = d3.select(".tooltip");
+
+
+
+    function drawChart(data, containerClass, domainMax) {
+        var barHeight = 25;  // Adjust this value as desired
+        var barSpace = 10;  // Adjust this value for the space between bars
+        var totalHeight = data.length * (barHeight + barSpace);
+
+        height = totalHeight - margin.top - margin.bottom;
+
+        var y = d3.scaleBand().range([totalHeight, 0]);
+        var x = d3.scaleLinear().range([0, width]);
+        // Define the x-axis:
+        var xAxis = d3.axisBottom(x).ticks(5).tickValues([0, 100, 200, 300, 400, 500]);
+        var y = d3.scaleBand().range([height, 0]).padding(0.01);  // Adjusted padding here
+
+
+
+        var svg = d3
+            .select(`.${containerClass}`)
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        data.sort((a, b) => a.rate - b.rate || a.enrollment - b.enrollment);
+
+        // var barHeight = (height * 2 * 0.4) / data.length;
+
+
+        y.domain(data.map(d => d.district));
+
+        x.domain([0, domainMax]);
+
+        var xAxis = d3.axisBottom(x).ticks(5);
+
+        // Append the vertical line and set its initial properties
+        var verticalLine = svg.append("line")
+            .attr("y1", 0)
+            .attr("y2", height)
+            .style("stroke", "black")
+            .style("stroke-width", 1.5)
+            .style("opacity", 0);  // Initially set it as invisible
+
+
+        svg.selectAll(".bar")
+        svg.selectAll(".bar")
+            .data(data)
+            .enter()
+            .append("rect")
+            .attr("class", "bar")
+            .attr("x", 0)
+            .attr("width", d => x(d.rate || d.enrollment))
+            .attr("y", d => y(d.district))
+            .attr("height", barHeight)
+
+            .on("mouseover", function (d) {
+                tooltip.style("visibility", "visible");
+                if (d.rate) {
+                    tooltip.html("<p>District: </p>" + d.district + "<br><p>Killed per 100k population: </p>" + d.rate);
+                } else {
+                    tooltip.html("<p>District: </p>" + d.district + "<br><p>Total Killed: </p>" + d.enrollment);
+                }
+
+                // Adjust vertical line position and make it visible
+                verticalLine
+                    .attr("x1", x(d.rate || d.enrollment))
+                    .attr("x2", x(d.rate || d.enrollment))
+                    .style("opacity", 1);
+
+                // Append a small square at the middle of the bar
+                svg.append("rect")
+                    .attr("class", "hover-square")
+                    .attr("x", x(d.rate || d.enrollment) - 5)  // Adjust position so the square is centered
+                    .attr("y", y(d.district) + (barHeight - 10) / 2) // Position it in the middle of the bar
+                    .attr("width", 10)
+                    .attr("height", 10)
+                    .style("fill", "transparent")
+.style("stroke", "#000000") // This is the border color
+.style("stroke-width", "1px");
+            })
+            .on("mousemove", function () {
+                tooltip
+                    .style("top", (d3.event.pageY - 10) + "px")
+                    .style("left", (d3.event.pageX + 10) + "px");
+            })
+            .on("mouseout", function () {
+                tooltip.style("visibility", "hidden");
+
+                // Hide the vertical line
+                verticalLine.style("opacity", 0);
+
+                // Remove the square
+                svg.selectAll(".hover-square").remove();
+            });
+
+        svg.selectAll(".text")
+            .data(data)
+            .enter()
+            .append("text")
+            .attr("class", "text")
+            .attr("x", function (d) {
+                return x(d.rate || d.enrollment) + 5;
+            })
+            .attr("y", function (d) {
+                return y(d.district) + y.bandwidth() / 2 + 3;  // Use bandwidth() method here
+            })
+            .text(function (d) {
+                return d.rate || d.enrollment;
+            });
+
+        // Append the x-axis to the SVG
+        svg.append("g")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);
+
+        svg.append("g").call(d3.axisLeft(y));
+
+
+
+
+    }
+
+    // Call the function to draw the charts
+    drawChart(enrollmentData, 'container', 400);
+    drawChart(enrollmentRate, 'container2', 15);
+
+
+
+    function showChart(chartId) {
+        if (chartId === 'chart1') {
+            document.getElementById('chart1').style.display = 'block';
+            document.getElementById('chart2').style.display = 'none';
+
+        } else if (chartId === 'chart2') {
+            document.getElementById('chart1').style.display = 'none';
+            document.getElementById('chart2').style.display = 'block';
+
+        }
+    }
+
+    // Set the initial state (optional)
+    showChart('chart1');
+
+
+
+</script>
+
+<!-- load the d3.js library -->
+<script src="//d3js.org/d3.v4.min.js"></script>
+
+
+
+
+
+</html>
