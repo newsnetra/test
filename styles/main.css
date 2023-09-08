@@ -295,12 +295,12 @@ header {
 }
 
 .frame .group-4 {
-  position: absolute;
-  max-width: 14vw;
-  height: auto;
-  bottom: 8vh;
-  left: 10vw;
-  object-fit: contain;
+  position:absolute;
+  max-width:14vw;
+  height:auto;
+  bottom:8vh;
+  left:10vw;
+  object-fit:contain
 }
 
 .frame .group-5 {
