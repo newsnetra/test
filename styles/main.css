@@ -220,6 +220,7 @@ header {
   bottom: 27vh;
   right: 17vw;
   object-fit: contain;
+  z-index: 90;
 }
 
 .frame .overlap-5 {
