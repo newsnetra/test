@@ -289,18 +289,18 @@ header {
   position: absolute;
   max-width: 15vw;
   height: auto;
-  bottom: 2vh;
-  right: 7vw;
+  bottom: 6vh;
+  right: 11vw;
   object-fit: contain;
 }
 
 .frame .group-4 {
-  position:absolute;
+  position: absolute;
   max-width:14vw;
-  height:auto;
-  bottom:8vh;
-  left:10vw;
-  object-fit:contain
+  height: auto;
+  bottom: 8vh;
+  left: 10vw;
+  object-fit: contain;
 }
 
 .frame .group-5 {
@@ -308,7 +308,7 @@ header {
   max-width: 13vw;
   height: auto;
   top: 6vh;
-  right: 10vw;
+  right: 14vw;
   object-fit: contain;
 }
 
@@ -316,8 +316,8 @@ header {
   position: absolute;
   max-width: 12vw;
   height: auto;
-  top: 40vh;
-  right: 10vw;
+  top: 31vh;
+  right: 12vw;
   object-fit: contain;
 }
 
