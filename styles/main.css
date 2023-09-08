@@ -253,7 +253,7 @@ header {
   position: absolute;
   max-width: 11vw;
   height: auto;
-  bottom: 15vh;
+  bottom: 6vh;
   left: 8vw;
   object-fit: contain;
 }
