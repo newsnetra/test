@@ -971,22 +971,8 @@ h1 {
 
 }
 
-.quote-sign {
-  position: absolute;
-  top: 50%;
-  left: 30%;
-}
 
-blockquote {
-  top: 60%;
-  display: inline-block;
-  text-align: center;
-  padding: 0 20%;
-  position: absolute;
-
-}
-
-blockquote p {
+.fuote {
   text-transform: uppercase;
   color: #ffffff;
   font-size: 30px;
