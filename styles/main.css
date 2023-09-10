@@ -971,6 +971,10 @@ h1 {
   text-transform: uppercase;
   color: #ffffff;
   font-size: 30px;
+  margin-top: 62px;
+  margin-right: 62px;
+  margin-bottom: 62px;
+  margin-left: 62px;
   font-family: "museo-sans", "Helvetica", sans-serif;
   font-weight: 700;
   line-height: unset;
