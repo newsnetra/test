@@ -965,23 +965,12 @@ h1 {
   height: auto;
 }
 
-.quote-container img {
-  display: block;
-  margin: auto;
-
-}
 
 
 .fuote {
   text-transform: uppercase;
   color: #ffffff;
   font-size: 30px;
-  overflow-wrap: normal;
-  background-color: #000000;
-  padding: 5px;
-  border-radius: 0px;
-  margin: 0;
-  max-width: 100%;
   font-family: "museo-sans", "Helvetica", sans-serif;
   font-weight: 700;
   line-height: unset;
