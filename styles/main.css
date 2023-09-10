@@ -957,6 +957,67 @@ h1 {
 
 /* Numbers ENDS */
 
+.quote-container {
+  max-width: 45%;
+  position: relative;
+  align-items: center;
+  margin: auto;
+  height: auto;
+}
+
+.quote-container img {
+  display: block;
+  margin: auto;
+
+}
+
+.quote-sign {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+}
+
+blockquote {
+  top: 60%;
+  display: inline-block;
+  text-align: center;
+  padding: 0 20%;
+  position: absolute;
+
+}
+
+blockquote p {
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 30px;
+  overflow-wrap: normal;
+  background-color: #000000;
+  padding: 5px;
+  border-radius: 0px;
+  margin: 0;
+  max-width: 100%;
+  font-family: "museo-sans", "Helvetica", sans-serif;
+  font-weight: 700;
+  line-height: unset;
+}
+
+cite {
+  display: block;
+  color: #111111;
+  padding-top: 5px;
+}
+
+.quote-author span {
+  color: black;
+  font-family: 'National', monospace;
+  background-color: white;
+  font-size: 20px;
+  font-weight: 100;
+  font-style: normal;
+  margin-left: 50%;
+  margin-top: 0;
+}
+
 
 
 /* CUSTOM FONT STARTS */
