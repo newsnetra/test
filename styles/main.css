@@ -968,13 +968,12 @@ h1 {
 .quote-container img {
   display: block;
   margin-left: 27%;
-  align-self: center;
 
 }
 .quote-sign {
   position: absolute;
-  top: 50%;
-  left: 30%;
+  top: 55%;
+  left: 9%;
 
 }
 .fuote {
