@@ -960,29 +960,34 @@ h1 {
 .quote-container {
   max-width: 45%;
   position: relative;
-  align-items: center;
+  align-content: center;
   margin: auto;
   height: auto;
 }
 
+.quote-container img {
+  display: block;
+  margin: auto;
+  align-self: center;
 
-
+}
 .fuote {
   text-transform: uppercase;
-  color: #ffffff;
+  color:#fff;
   background-color: #add8e6;
   padding: 0 6px;
   font-size: 30px;
   margin: auto;
-  font-family: "museo-sans", "Helvetica", sans-serif;
+  font-family: museo-sans,helvetica,sans-serif;
   font-weight: 700;
-  line-height: unset;
-}
+  line-height: unset
+  text-decoration: none;
 
+}
 cite {
   display: block;
-  color: #111111;
-  padding-top: 5px;
+  color: #111;
+  padding-top: 5px
 }
 
 .quote-author span {
