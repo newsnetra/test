@@ -979,19 +979,19 @@ h1 {
 .fuote {
   text-transform: uppercase;
   text-align: center;
-  color:#fff;
+  color: #fff;
   background-color: #25251F;
   padding: 0 6px;
   font-size: 30px;
-   margin-top: 3%; /* You can adjust this value to control the vertical position */
-  margin-left: 7%; /* You can adjust this value to control the horizontal position */
-  position: relative;
-  display: inline;
-  left: 50%;
-  top: 50%;
-  font-family: museo-sans,helvetica,sans-serif;
+  font-family: museo-sans, helvetica, sans-serif;
   font-weight: 700;
   line-height: unset;
+  margin-top: -63%; 
+  margin-left: -25%; 
+  display: revert;
+  position: relative;
+  left: 50%;
+  top: 50%;
 
 }
 
