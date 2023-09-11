@@ -972,6 +972,7 @@ h1 {
 
 }
 .fuote {
+  top: 63%;
   text-transform: uppercase;
   text-align: center;
   color:#fff;
@@ -979,10 +980,11 @@ h1 {
   padding: 0 6px;
   font-size: 30px;
   margin-left: 27%;
+  display: inline-block;
+  position: absolute;
   font-family: museo-sans,helvetica,sans-serif;
   font-weight: 700;
-  line-height: unset
-  text-decoration: none;
+  line-height: unset;
 
 }
 cite {
