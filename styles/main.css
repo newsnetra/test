@@ -970,11 +970,10 @@ h1 {
 .fuote {
   text-transform: uppercase;
   color: #ffffff;
+  background-color: #add8e6;
+  padding: 0 6px;
   font-size: 30px;
-  margin-top: 62px;
-  margin-right: 62px;
-  margin-bottom: 62px;
-  margin-left: 62px;
+  margin: auto;
   font-family: "museo-sans", "Helvetica", sans-serif;
   font-weight: 700;
   line-height: unset;
