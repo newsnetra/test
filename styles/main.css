@@ -968,38 +968,43 @@ h1 {
 .quote-container img {
   display: block;
   margin-left: 27%;
-  align-self: center;
+
+}
+.quote-sign {
+  position: absolute;
+  top: 55%;
+  left: 9%;
 
 }
 .fuote {
   text-transform: uppercase;
   text-align: center;
   color:#fff;
-  background-color: #add8e6;
+  background-color: #25251F;
   padding: 0 6px;
   font-size: 30px;
-  margin-left: 27%;
+   margin-top: 3%; /* You can adjust this value to control the vertical position */
+  margin-left: 7%; /* You can adjust this value to control the horizontal position */
+  position: relative;
+  display: inline;
+  left: 50%;
+  top: 50%;
   font-family: museo-sans,helvetica,sans-serif;
   font-weight: 700;
-  line-height: unset
-  text-decoration: none;
+  line-height: unset;
 
 }
-cite {
-  display: block;
-  color: #111;
-  padding-top: 5px
-}
 
-.quote-author span {
+.quote-author {
+  top: 71%;
   color: black;
   font-family: 'National', monospace;
   background-color: white;
   font-size: 20px;
   font-weight: 100;
   font-style: normal;
-  margin-left: 50%;
-  margin-top: 0;
+  margin-left: 56%;
+  position: absolute;
 }
 
 
