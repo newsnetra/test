@@ -971,6 +971,12 @@ h1 {
   align-self: center;
 
 }
+.quote-sign {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+
+}
 .fuote {
   top: 63%;
   text-transform: uppercase;
