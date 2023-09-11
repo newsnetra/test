@@ -998,59 +998,6 @@ cite {
 
 
 
-.boxArticoloHome:hover .effettoFotoHover{
-	opacity: 1;
-}
-.boxHomeDescrizione{
-	z-index:2;
-	position:relative;
-	max-width: 250px;
-	display: inline-block;
-  text-align: center;
-	padding-top: 250px;
-}
-.boxArticoloHome h2, .boxArticoloHome h3{
-	font-size:20px;
-	text-decoration: none;
-	text-align: center;
-	color: #000;
-	
-	margin-bottom:5px;
-	line-height: 1.4em;
-	font-weight: bold;
-}
-.titoloArticoloHome{
-	text-transform: uppercase;
-}
-.boxArticoloHome h3{
-	display: inline-block;
-	background-color: #ffffff;
-	font-size:12px;
-	font-family: 'Century';
-	font-weight: normal;
-	padding: 0px 3px;
-	margin-right: 2px;
-	margin-left: 2px;
-}
-.boxArticoloHome h2 a, .boxArticoloHome h3 a{
-	display: inline;
-	padding: 1px 0px;
-	background-color: #ffffff;
-	color: #000;
-	text-decoration: none;
-	-webkit-transition: all 0.5s ease-out;
--moz-transition: all 0.5s ease-out;
--ms-transition: all 0.5s ease-out;
--o-transition: all 0.5s ease-out;
-transition: all 0.5s ease-out;
-}
-.boxArticoloHome h2 a:hover, .boxArticoloHome h3 a:hover{
-	background-color: #000;
-	color: #ffffff;
-}
-
-
-
 /* CUSTOM FONT STARTS */
 
 @font-face {
