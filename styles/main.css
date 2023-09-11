@@ -967,7 +967,7 @@ h1 {
 
 .quote-container img {
   display: block;
-  margin: auto;
+  margin-left: 27%;
   align-self: center;
 
 }
@@ -977,7 +977,7 @@ h1 {
   background-color: #add8e6;
   padding: 0 6px;
   font-size: 30px;
-  margin: auto;
+  margin-left: 27%;
   font-family: museo-sans,helvetica,sans-serif;
   font-weight: 700;
   line-height: unset
