@@ -973,6 +973,7 @@ h1 {
 }
 .fuote {
   text-transform: uppercase;
+  text-align: center;
   color:#fff;
   background-color: #add8e6;
   padding: 0 6px;
