@@ -1,5 +1,3 @@
-
-
 /* Add at the top of your CSS */
 * {
   margin: 0;
@@ -7,10 +5,20 @@
   box-sizing: border-box;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: rgb(219, 29, 8); /* Background color for selected text */
+  color: white; /* Text color for selected text */
+}
 
 
 
@@ -21,7 +29,7 @@ body {
   font-family: 'Publico Text Web', Helvetica, sans-serif;
   font-weight: 400;
   font-size: 14px;
-  --nav-height: 30px;
+  --nav-height: 45px;
 
 }
 
@@ -33,57 +41,129 @@ header {
 /* NAV STARTS */
 
 
-.nav {
-  background: #000;
-  color: #fff;
-  align-items: center;
+
+.nav1 {
   display: flex;
-  font-family: "museo-sans", Helvetica, sans-serif;
-  height: var(--nav-height);
-  justify-content: space-between;
-  left: 0;
+  background: #0d0c0f;
+  height: 45px;
+position: fixed;
   width: 100%;
-  top: 0;
-  position: fixed;
-  transition: transform 0.3s;
-  border-bottom: 1px solid #e1e1e1;
-  box-shadow: 0 1px 5px 0 #00000014;
-  z-index: 91;
-
-
+  z-index: 100;
+  align-items: center;
+  
 }
 
-/* .nav--hidden {
-  transform: translateY(calc(-1 * var(--nav-height)));
-  box-shadow: none;
-} */
-
-
-.nav-right {
-  font-size: 12px;
-  justify-content: flex-start;
-  letter-spacing: .05em;
-  margin-right: 1rem;
-  text-transform: uppercase;
-  white-space: nowrap;
-  display: flex;
+.nav-center {
+  display: block;
+  margin:auto;
 }
-
-.nav-right a,
-.nav-right a:hover,
-.nav-right a:visited {
-  text-decoration: none;
-  color: white;
-}
-
-
-
 
 .nav-logo {
-  margin-left: 1rem;
-  max-height: 20px;
-  max-width: 100%;
+    max-height: 30px;
+    max-width: 100%;
+    display: block;
+}
+
+.menu-toggle {
+  width: 30px;
+  height: 20px;
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+  top: 0px;
+}
+
+.menu-toggle.on .one {
+  transform: rotate(45deg) translate(7px, 7px);
+  transition-duration: 0.3s;
+}
+
+.menu-toggle.on .two {
+  opacity: 0;
+  transition-duration: 0.3s;
+}
+
+.menu-toggle.on .three {
+  transform: rotate(-45deg) translate(8px, -10px);
+  transition-duration: 0.3s;
+}
+
+.one {
+  width: 100%;
+  height: 3px;
+  background: white;
+  margin: 12px auto 6px auto;
+  backface-visibility: hidden;
+  transition-duration: 0.3s;  
+}
+
+.two,
+.three {
+  width: 100%;
+  height: 3px;
+  background: white;
+  margin: 6px auto;
+  backface-visibility: hidden;
+  transition-duration: 0.3s;
+}
+
+
+nav ul {
+  margin: 45px 0;
+  font-family:'Bebas Neue', sans-serif;
+  list-style: none;
+  text-align: center;
+  height: 100vh;
+  background-color: #f2f3f0;
+  display: grid;
+  align-items: center;
+}
+
+
+
+nav ul.hidden {
+  display: none;
+}
+
+nav ul a {
+  transition-duration: 0.5s;
+  text-decoration: none;
+  color: #0d0c0f;
+  font-size: 3em;
+  line-height: 1.5;
+  width: 100%;
   display: block;
+
+  
+}
+
+nav ul a:hover {
+  /* background-color: rgba(0,0,0,0.5); */
+  background-color: #DB1D08;
+
+}
+
+.menu-section.on {
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: block;
+  /* background-color: rgba(0,0,0,0.5); */
+  position: absolute;
+}
+
+.nav-interactive {
+  position: absolute;
+  left: 20px; 
+  color: white; 
+  font-family: "Bebas Neue", Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  font-size: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.5px;
 }
 
 
@@ -99,7 +179,9 @@ header {
 .framer {
   position: relative;
   /* Ensure children with position:sticky work correctly */
-  background-color: #111111;
+  background-color: #0d0c0f;
+  width: 100%;
+  height: 100%;
 }
 
 .RAB {
@@ -122,19 +204,22 @@ header {
   max-height: 100vh;
   text-align: center;
   letter-spacing: 0;
-  line-height: 7vw;
-  position: fixed;
+  line-height: 9vw;
+margin: auto;
   z-index: 1;
   font-family: "bodycount", self-serif;
   font-weight: 400;
   color: #fff;
-  font-size: 8vw;
+  font-size: 10vw;
   text-align: center;
   letter-spacing: 0;
-  padding-top: 18vh;
+  padding-top: 60vh;
+  display: block;
 }
+
 .BODY-COUNT.fixed {
-  padding-right: 15px;  /* or whatever the scrollbar width is */
+  padding-right: 15px;
+  /* or whatever the scrollbar width is */
 }
 
 .rab-container {
@@ -170,7 +255,7 @@ header {
   bottom: 0;
   z-index: 1;
   pointer-events: none;
-  background: transparent url('https://newsnetra.github.io/ejk/assets/cover/noise-transparent.png');
+  background: transparent url('https://interactive.netra.news/extrajudicial-killings-bangladesh/assets/cover/noise-transparent.png');
   opacity: 0.6;
   width: 100%;
   height: 100%;
@@ -219,7 +304,6 @@ header {
   bottom: 27vh;
   right: 17vw;
   object-fit: contain;
-  z-index: 90;
 }
 
 .frame .overlap-5 {
@@ -296,7 +380,7 @@ header {
 
 .frame .group-4 {
   position: absolute;
-  max-width:14vw;
+  max-width: 14vw;
   height: auto;
   bottom: 8vh;
   left: 10vw;
@@ -332,7 +416,7 @@ header {
 
 
 .grids {
-  max-width: 40%;
+  max-width: 45%;
   margin: 4rem auto;
   background-color: #f2f3f0;
 }
@@ -376,12 +460,12 @@ header {
   font-size: 1.5rem;
   color: #727272;
   border: 0.5px solid #727272;
-  font-family: monospace;
+  font-family: 'National', monospace;
 }
 
 .y2013 {
   margin: 2rem 0px;
-  color: #000;
+  color: #0d0c0f;
 }
 
 .people {
@@ -391,7 +475,7 @@ header {
   line-height: 2rem;
   overflow-wrap: break-word;
   text-align: center;
-  color: #051341;
+  color: #DB1D08;
   margin: auto 6rem;
   position: relative;
 }
@@ -405,7 +489,7 @@ header {
 
 
 .right.people {
-  color: #051341;
+  color: #DB1D08;
   margin: 0;
 }
 
@@ -432,8 +516,7 @@ header {
 
 #scrolly {
   position: relative;
-
-  margin: 0px;
+  margin: 40px 0px;
   background-color: rgba(194, 200, 202, 1);
 }
 
@@ -463,6 +546,9 @@ figure {
 }
 
 figure img {
+  position:absolute;
+  left: 50%; 
+  transform: translateX(-50%);
   width: 100%;
   height: 100vh;
   object-fit: cover;
@@ -492,7 +578,7 @@ figure p {
 
 .step {
   margin: 0 auto 2rem auto;
-  color: #000000;
+  color: #0d0c0f;
   background-color: transparent;
 }
 
@@ -509,7 +595,7 @@ figure p {
   padding: 10px 15px;
   background-color: rgba(255, 255, 255, .95);
   margin: auto;
-  border: 1px solid #000;
+  border: 1px solid #0d0c0f;
 }
 
 .cards h4 {
@@ -519,6 +605,7 @@ figure p {
   margin-bottom: 0.2em;
   margin-top: 0;
   font-family: 'Inter', Helvetica, sans-serif;
+  color: #0d0c0f;
 }
 
 
@@ -530,7 +617,7 @@ figure p {
   font-weight: 400;
   font-size: 18px;
   line-height: 1.4;
-  color: #000;
+  color: #0d0c0f;
   -webkit-font-smoothing: antialiased;
   font-family: 'National', Arial, Helvetica, sans-serif;
 }
@@ -543,15 +630,15 @@ p.note {
 }
 
 p.note b {
-  color: crimson;
+  color: #DB1D08;
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
   font-family: 'National', Helvetica, sans-serif;
 }
 
-p.note s {
-  color: #fdbaaa;
+p.note i {
+  color: #DB1D08;
 }
 
 /* SCROLLAMA ENDS */
@@ -594,17 +681,31 @@ main {
 
 }
 
+.author_date,
+  .quote-container,
+  h2,
+  h3,
+  p {
+    max-width: 45%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+
 p {
   font-family: 'Publico Text Web', Georgia, serif;
-  font-size: 20px;
-  max-width: 45%;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 24px;
-  color: #000000;
-  font-variant-ligatures: normal;
-  line-height: 30px;
-  font-stretch: 100%;
+    font-size: 20px;
+    margin-bottom: 24px;
+    color: #0d0c0f;
+    font-variant-ligatures: normal;
+    font-variation-settings: normal;
+    font-feature-settings: normal;
+    -webkit-text-size-adjust: 100%;
+    line-height: 30px;
+    font-stretch: 100%;
+    word-wrap: break-word;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 .iframe_c {
@@ -622,22 +723,30 @@ p {
 }
 
 h2 {
-  font-family: "museo-sans", Helvetica, sans-serif;
-  font-weight: 700;
+  font-family: "Bebas Neue", Helvetica, sans-serif;
+  font-weight: 400;
   font-style: normal;
-  max-width: 45%;
-  margin: 6rem auto 2rem auto;
+  margin: 4rem auto 1rem auto;
   line-height: 1.45;
-  font-size: 2rem;
-  color: #051341;
+  font-size: 2.5rem;
+  color: #DB1D08;
+  letter-spacing: 0.5px;
 }
 
 h3 {
-  font-family: "museo-sans", Helvetica, sans-serif;
-  color: #000000;
-  margin: 4rem auto 1rem auto;
+  font-family: "Bebas Neue", Helvetica, sans-serif;
+  color: #0d0c0f;
+  margin: 3rem auto 1rem auto;
   font-style: normal;
-  max-width: 45%;
+  letter-spacing: 0.5px;
+  font-weight: 100;
+}
+
+.tableh3 {
+  text-align: center;
+font-size: 25px;
+letter-spacing: 1px;
+color: #0d0c0f;
 }
 
 .mainarticle::first-letter {
@@ -647,9 +756,230 @@ h3 {
   margin-bottom: -5px;
   line-height: 3rem;
   padding: 0.2rem;
-  color: #051341;
+  color: #0d0c0f;
 
 }
+
+
+
+
+/* right card starts */
+
+.transition {
+  transition: all 0.25s ease-in-out;
+}
+
+.flipIn {
+  animation: flipdown 0.5s ease both;
+}
+
+.no-select {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+
+
+.right-card {
+  
+  float: right;
+  background-color: transparent;
+  max-width: 25%;
+  padding: 10px;
+  margin: 40px 5%;
+}
+
+
+
+
+
+.right-card h3 {
+  color: #0d0c0f;
+  text-transform: uppercase;
+  font-size: 25px;
+  letter-spacing: 1.5px;
+  font-weight: 100;
+  animation: flipdown 0.5s ease both;
+  max-width: unset;
+  margin: 0px 0px 20px 0px;
+}
+
+
+
+
+.right-card h3 span {
+  background-color: #DB1D08;
+  color: white;
+  padding: 2px;
+  display: inline-block; 
+  transform: skewY(-1deg); 
+}
+
+
+.right-card h3::before {
+  content: '';
+    display: block;
+    width: 25%;
+    height: 10px;
+    background: lightgray;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: -15px;
+}
+
+
+.right-card h4 {
+  color: #0d0c0f;
+  font-size: 18px;
+  line-height: 23px;
+  font-weight: 300;
+  font-family: "Bebas Neue", Helvetica, sans-serif;
+  display: block;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  max-width: unset;
+  margin-right: 10px;
+  letter-spacing: 0.5px;
+  word-spacing: 1.5px;
+}
+
+.right-card p {
+  color: #0d0c0f;
+  font-family: 'National', monospace;
+  font-size: 15px;
+  line-height: 22px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease-in-out;
+  opacity: 1;
+  transform: translate(0, 0);
+  margin-top: 14px;
+  max-width: unset;
+
+}
+
+.right-card ul {
+  list-style: none;
+  perspective: 900;
+  padding: 0;
+  margin: 0;
+}
+
+.right-card ul li {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  padding-top: 10px;
+  animation: flipdown 0.5s ease both;
+}
+
+.right-card ul li::after {
+  content: '';        /* Necessary for the pseudo-element to show */
+    display: block;
+    width: 60%;         /* Set the width to half of the parent element */
+    height: 2px;        /* Height of the border */
+    background: lightgray;  /* Border color */
+    position: absolute;
+    bottom: 0;          /* Position the "border" at the bottom of the parent element */
+    left: 40%; 
+    margin-bottom: -10px;       
+}
+
+
+.right-card ul li:nth-of-type(1) {
+  animation-delay: 0.5s;
+}
+
+.right-card ul li:nth-of-type(2) {
+  animation-delay: 0.75s;
+}
+
+.right-card ul li:nth-of-type(3) {
+  animation-delay: 1.0s;
+}
+
+.right-card ul li:last-of-type {
+  padding-bottom: 0;
+}
+
+.right-card ul li i {
+  position: absolute;
+  transform: translate(-6px, 0);
+  margin-top: 8px;
+  right: 0;
+}
+
+.right-card ul li i:before, ul li i:after {
+  content: "";
+  transition: all 0.25s ease-in-out;
+  position: absolute;
+  background-color: rgba(255, 104, 115, 1);
+  width: 3px;
+  height: 9px;
+}
+
+.right-card ul li i:before {
+  transform: translate(-2px, 0) rotate(45deg);
+}
+
+.right-card ul li i:after {
+  transform: translate(2px, 0) rotate(-45deg);
+}
+
+.right-card ul li input[type="checkbox"] {
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+ 
+  opacity: 0;
+}
+
+.right-card ul li input[type="checkbox"]:checked ~ p {
+  margin-top: 0;
+  max-height: 0;
+  opacity: 0;
+  transform: translate(0, 50%);
+}
+
+.right-card ul li input[type="checkbox"]:checked ~ i:before {
+  transform: translate(2px, 0) rotate(45deg);
+}
+
+.right-card ul li input[type="checkbox"]:checked ~ i:after {
+  transform: translate(-2px, 0) rotate(-45deg);
+}
+
+@keyframes flipdown {
+  0% {
+    opacity: 0;
+    transform-origin: top center;
+    transform: rotateX(-90deg);
+  }
+  5% {
+    opacity: 1;
+  }
+  80% {
+    transform: rotateX(8deg);
+  }
+  83% {
+    transform: rotateX(6deg);
+  }
+  92% {
+    transform: rotateX(-3deg);
+  }
+  100% {
+    transform-origin: top center;
+    transform: rotateX(0deg);
+  }
+}
+
+
+
+/* right card ends */
+
+
 
 .ejk_meta {
 
@@ -657,40 +987,119 @@ h3 {
 }
 
 .ejk_subtitle {
-  color: #000000;
-  font-family: "Inter", Helvetica, sans-serif;
-  font-size: 21px;
-  line-height: 1.44;
-  font-weight: normal;
-  max-width: 45%;
-
-  overflow-wrap: break-word;
-  margin: 1rem auto;
+  color: #0d0c0f;
+  font-family: "National", Helvetica, sans-serif;
+  font-size: 25px;
+  line-height: 1.50;
+  font-weight: 500;
+  max-width: 60%;
+  margin: 2rem auto;
   text-align: center;
+  letter-spacing: 0px;
+}
+
+
+
+
+.scroller1 {
+  height: 100%; /* ensure that the body takes the full viewport height */
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
+
+.scroll-type6 {
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #0d0c0f;
+    border: 5px solid transparent;
+  position: absolute; /* or fixed if you want it to stay centered even on scroll */
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll-icon svg {
+  color: white;
+}
+.scroll-type6::before {
+  display: block;
+  content: "";
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, transparent 10%, #0d0c0f 10%); /* Starts with transparent and then immediately starts with white */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  animation: scale 1.6s ease-in infinite;
+}
+
+@keyframes scale {
+  0% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-50%) scale(1);
+  }
+  40% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-50%) scale(1.2);
+  }
+  100% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-50%) scale(2);
+  }
+}
+
+
+.scroll-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-7px);
+    }
+}
+
+.scroll-icon {
+    animation: bounce 2s infinite;
+}
+
 
 
 
 .author_date {
-  /* animation: author_date 4s; */
-
-
-
   font-weight: normal;
   line-height: 1.44;
   margin: auto;
-  max-width: 45%;
-  text-align: left;
-
 }
 
 .byline {
-  color: #000000;
+  color: #0d0c0f;
   display: block;
-  font-family: 'Publico Text Web', Georgia, 'Times New Roman', Times, serif;
+  font-family: "Bebas Neue", Helvetica, sans-serif;
   font-size: 1rem;
-
+  letter-spacing: 0.8px;
+  word-spacing: 2px;
 }
 
 .byline a,
@@ -707,11 +1116,10 @@ h3 {
 time {
 
   display: block;
-  font-family: monospace;
-  font-weight: 100;
+  font-family: 'Inter', monospace;
   font-size: 13px;
   margin-top: 0.15rem;
-  color: #727272;
+  color: #333333;
 
 }
 
@@ -729,7 +1137,7 @@ figcaption {
 .caption {
   font-family: 'Inter', Helvetica, sans-serif;
   color: rgb(102, 102, 102);
-  font-size: 10px;
+  font-size: 13px;
   margin: 1rem;
 
 }
@@ -756,14 +1164,14 @@ img {
 
 a {
   color: inherit;
-  text-decoration: underline;
-  text-decoration-color: #051341;
+  text-decoration-style: dashed;
+  text-decoration-color: #DB1D08;
   text-underline-offset: 6px;
-  text-decoration-thickness: 3.5px;
+  text-decoration-thickness: 2px;
 }
 
 a:hover {
-  text-decoration-color: rgba(0, 0, 80, 0.7);
+  text-decoration-color: #0d0c0f;
 
 }
 
@@ -796,15 +1204,14 @@ article a[href^="https://netra.news"]::after {
 
 
 .hero {
-  color: #000000;
+  color: #0d0c0f;
   position: relative;
   text-align: center;
   width: 100%;
-
   margin-left: auto;
   margin-right: auto;
   margin-bottom: auto;
-  padding-top: 50vh;
+  z-index: 1;
 }
 
 .hero img,
@@ -834,7 +1241,7 @@ svg {
 
 .svg_line {
   width: 100%;
-  margin: 4rem auto;
+  margin: 2rem auto;
 }
 
 #frame1,
@@ -843,7 +1250,7 @@ svg {
 #frame4,
 #frame5 {
   fill: none;
-  stroke: #000000;
+  stroke: #0d0c0f;
   stroke-miterlimit: 10;
   stroke-width: 0.15rem;
   stroke-dasharray: 135;
@@ -866,7 +1273,7 @@ svg {
 
 #frame5 {
   fill: none;
-  stroke: #FF0000;
+  stroke: #DB1D08;
   stroke-miterlimit: 10;
   stroke-width: 2px;
   stroke-dasharray: 135;
@@ -894,6 +1301,7 @@ svg {
 h1 {
   font-size: unset;
   margin: unset;
+  font-weight: normal;
 }
 
 
@@ -916,9 +1324,10 @@ h1 {
 
 .numbers {
   max-width: 75%;
-  margin: 0 auto;
+  margin: 20px auto;
   background-color: #f2f3f0;
-  color: #000000;
+  color: #0d0c0f;
+
 }
 
 .numeric,
@@ -942,7 +1351,7 @@ h1 {
 .text {
   font-size: 1rem;
   font-weight: 300;
-  font-family: monospace;
+  font-family: 'National', monospace;
   color: #727272;
 
 }
@@ -951,62 +1360,85 @@ h1 {
   font-size: 5rem;
   font-weight: 700;
   font-family: 'bodycount', cursive;
-  color: #051341;
+  color: #DB1D08;
 }
 
 
 /* Numbers ENDS */
 
 .quote-container {
-  max-width: 45%;
   position: relative;
-  align-content: center;
-  margin: auto;
+  align-items: center;
+  margin: 40px auto;
   height: auto;
 }
 
 .quote-container img {
   display: block;
-  margin-left: 27%;
+  margin: auto;
 
 }
-.quote-sign {
-  position: absolute;
-  top: 55%;
-  left: 9%;
 
-}
-.fuote {
-  text-transform: uppercase;
+
+blockquote {
+  top: 60%;
+  display: inline-block;
   text-align: center;
-  color: #fff;
-  background-color: #25251F;
-  padding: 0 6px;
-  font-size: 30px;
-  font-family: museo-sans, helvetica, sans-serif;
-  font-weight: 700;
-  line-height: unset;
-  margin-top: -63%; 
-  margin-left: -25%; 
-  display: revert;
-  position: relative;
-  left: 50%;
-  top: 50%;
+  padding: 0 20%;
+  position: absolute;
 
 }
 
-.quote-author {
-  top: 71%;
-  color: black;
+blockquote p {
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 38px;
+  overflow-wrap: normal;
+  background-color: #0d0c0f;
+  padding: 5px;
+  border-radius: 0px;
+  margin: 0;
+  max-width: 100%;
+  font-family: "Bebas Neue", "Helvetica", sans-serif;
+  font-weight: 400;
+  line-height: unset;
+  display: inline;
+  letter-spacing: 0.5px;
+}
+
+
+.bquote-sign {
+  font-size: 6em;
+  max-width: 100%;
+  margin: auto;
+  display: block;
+  position: absolute;
+  line-height: 5px;
+  top: 55%;
+  padding: 0 45%;
+  color: white;
+  font-weight: 100;
+  font-family: 'National', monospace;
+
+}
+
+
+cite {
+  display: block;
+  color: #0d0c0f;
+  padding-top: 5px;
+}
+
+.quote-author span {
+  color: #0d0c0f;
   font-family: 'National', monospace;
   background-color: white;
   font-size: 20px;
   font-weight: 100;
   font-style: normal;
-  margin-left: 56%;
-  position: absolute;
+  margin-left: 0;
+  margin-top: 0;
 }
-
 
 
 /* CUSTOM FONT STARTS */
@@ -1016,13 +1448,13 @@ h1 {
   src: url('../assets/fonts/bodycount.woff2') format('woff2'),
     url('../assets/fonts/bodycount.woff') format('woff'),
     url('../assets/fonts/bodycount.ttf') format('truetype');
-    font-display: swap;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Publico Text Web';
-  src: url('PublicoText-Roman-Web.woff2') format('woff2'),
-    url('PublicoText-Roman-Web.woff') format('woff');
+  src: url('../assets/fonts/PublicoText-Roman-Web.woff2') format('woff2'),
+    url('../assets/fonts/PublicoText-Roman-Web.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
@@ -1031,21 +1463,19 @@ h1 {
 
 @font-face {
   font-family: 'National';
-  src: url('test-national-book.woff2') format('woff2');
+  src: url('../assets/fonts/national-book.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'National';
-  src: url('test-national-bold.woff2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-}
 
 
 
 /* CUSTOM FONT ENDS */
+
+
+
+
 
 /* CREDIT STARTS */
 
@@ -1056,9 +1486,7 @@ h1 {
   box-sizing: border-box;
   margin-top: 4rem;
   border-top: 1px solid #c4c5c8;
-  padding: 2rem 0;
-  border-bottom: 1px solid #c4c5c8;
-  /* border-radius: 50%/100px 100px 0 0; */
+  padding: 2rem 0 0 0;
 }
 
 .wrapper_line {
@@ -1083,6 +1511,7 @@ h1 {
   font-family: "National", Helvetica, sans-serif !important;
   font-size: 0.9rem;
   line-height: 1.4rem;
+  margin-bottom: 2rem;
 }
 
 .credit-section-header {
@@ -1091,9 +1520,9 @@ h1 {
 }
 
 .credits-content a {
-  color: #000000 !important;
+  color: #0d0c0f !important;
   font-weight: 500;
-  text-decoration: underline;
+  text-decoration: dashed;
   text-decoration-line: underline;
   text-underline-offset: 0.25rem;
 }
@@ -1197,29 +1626,30 @@ h1 {
 
 /* CREDIT ENDS */
 
-
 /* FOOTER STARTS */
 
 #footer div.logo img {
-  max-width: 396px;
+  max-width: 150px;
   height: 100%;
 }
 
 #footer div.logo p {
   color: white;
   max-width: unset;
+  margin-bottom: unset;
+  font-size: 18px;
 }
 
 #footer div.lists {
   width: 100%;
   float: left;
-  margin-top: 30px;
+  display: flex;
 }
 
 #footer .list {
   float: left;
-  width: 32%;
-  margin-left: 2%;
+  width: 26%;
+  margin-left: 7%;
   border-top: 1px solid #fff;
   padding-top: 10px;
   margin-bottom: 35px;
@@ -1231,13 +1661,13 @@ h1 {
 }
 
 #footer .list h3 {
-  font-family: "museo-sans", "Helvetica", sans-serif;
-  font-size: 16px;
-  line-height: 20px;
+  font-family: "Bebas Neue", "Helvetica", sans-serif;
+  font-size: 20px;
   font-weight: 700;
-  color: #fff;
+  color: #ffffff;
   text-align: left;
-  margin: unset;
+  margin: 5px 0px;
+  letter-spacing: 0.5px;
 }
 
 #footer .list ul {
@@ -1248,10 +1678,18 @@ h1 {
   padding-left: 0px;
 }
 
+#footer .list li
+
+{
+  color: #f2f3f0;
+  padding-top: 2px;
+  font-weight: 400;
+  font-size: 15px;
+  font-family: 'National', monospace;
+}
+
 #footer .list li a {
-  color: #fff;
-  margin-left: 0px;
-  line-height: 20px;
+  
   text-decoration: none;
 }
 
@@ -1262,16 +1700,16 @@ h1 {
   color: #999;
   font-size: 15px;
   margin-top: 30px;
+  align-items: center; 
 }
 
 #footer div.copyright {
-  font-family: monospace;
+  font-family: 'National', monospace;
   font-size: 12px;
-  display: flex;
   color: #ffffff;
   clear: both;
-  padding-top: 5px;
-
+  align-items: center;
+  display: flex;
 }
 
 .copyright span {
@@ -1279,11 +1717,14 @@ h1 {
 }
 
 .copyright p {
-  color: white;
-  font-family: monospace;
+  color: #f2f3f0;
+  font-family: 'National', monospace;
   max-width: unset;
   margin: 0 10px;
   font-size: 13px;
+  display: inline;
+  line-height: unset;
+  vertical-align: middle;
 }
 
 .copyright img {
@@ -1291,39 +1732,46 @@ h1 {
   width: 28px;
   height: 28px;
 }
+.cc-yy
+{
+  display: contents;
+}
+
+
 
 #footer {
-  background: #051341;
+  background: #0d0c0f;
   color: #fff;
-  padding-top: 68px;
-  padding-bottom: 68px;
-  margin-top: 68px;
+  padding: 50px 0px;
   overflow: hidden;
 }
 
 #footer-inner {
-  max-width: 100%;
-  margin: auto 5%;
+  max-width: 45%;
+  margin: auto auto;
 }
 
+div.logo {
+  margin-bottom: 30px;
+}
 
 /* FOOTER ENDS */
 
 
 
 /* TABLE STARTS */
-.table1 {
+#table1 {
   max-width: 75%;
-  margin: 4rem auto;
+  margin: 2rem auto;
   font-family: 'National', Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.2;
-  color: #000000;
+  color: #0d0c0f;
   background-color: #f2f3f0;
   font-variant: tabular-nums;
 }
 
-.table1 p {
+#table1 p {
   max-width: none;
   font-family: 'National', Helvetica, sans-serif;
   font-size: 16px;
@@ -1349,9 +1797,9 @@ table.dataTable td span.arrow-icon:before {
   width: 7px;
   margin-top: 0px;
   display: block;
-  color: #000;
+  color: #0d0c0f;
   box-sizing: border-box;
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'National', monospace;
   line-height: 1.2;
   content: "";
   border-right: 2px solid;
@@ -1441,6 +1889,8 @@ table.dataTable td span.type_c.gunshot {
 
 div.info-container {
   padding: 10px 20px;
+  background-color: #fcf4ee;
+  
 }
 
 div.info-container p {
@@ -1450,6 +1900,7 @@ div.info-container p {
 
 div.info-container p span {
   font-weight: 800;
+  font-style: oblique;
 
 }
 
@@ -1462,8 +1913,8 @@ div.single_c {
 }
 
 .selectFilter {
-  background-color: #f4f4f4;
-  color: #000000;
+  background-color: transparent;
+  color: #0d0c0f;
   border-radius: 5px;
   display: flex;
   flex-wrap: wrap;
@@ -1627,8 +2078,8 @@ SCROLL-INDICATOR STARTS */
   display: block;
   width: 20px;
   height: 20px;
-  border-bottom: 1px solid #000;
-  border-right: 1px solid #000;
+  border-bottom: 1px solid #0d0c0f;
+  border-right: 1px solid #0d0c0f;
   transform: rotate(45deg);
   margin: -10px;
   animation: animate 2s infinite;
@@ -1659,11 +2110,11 @@ SCROLL-INDICATOR STARTS */
   align-items: center;
   justify-content: center;
   max-width: 100%;
-  margin: 2rem auto;
+  margin: 1rem auto;
 }
 
 .share-button img {
-  width: 2rem;
+  width: 2.5rem;
   padding: 0.5rem;
 }
 
@@ -1680,13 +2131,11 @@ g .domain {
 
 .barVisual .text {
   font-size: 13.5px;
-  fill: #000000;
   font-weight: 600;
 }
 
 .barVisual text {
   font-size: 13.5px;
-  fill: #000000;
   font-family: 'National', Helvetica, sans-serif;
 }
 
@@ -1697,17 +2146,17 @@ g .domain {
 
 #text {
   font-size: 12px;
-  fill: #000000;
+  fill: #0d0c0f;
   font-family: 'National', Helvetica, sans-serif;
 }
 
 .barVisual .bar {
-  fill: #051341;
+  fill: #DB1D08;
 
 }
 
 .bar:first-child {
-  fill: #051341;
+  fill: #DB1D08;
 }
 
 .barVisual .container {
@@ -1722,7 +2171,7 @@ g .domain {
   max-width: 75%;
   display: block;
   margin: 45px auto;
-  font-family: "gordita", helvetica, helvetica-neue, arial, sans-serif;
+
 }
 
 
@@ -1734,23 +2183,25 @@ g .domain {
 .chart_meta h2 {
   font-family: 'Inter', Helvetica, sans-serif;
   font-size: 25px;
-  font-weight: 500;
+  font-weight: 300;
   color: inherit;
   text-rendering: optimizelegibility;
-  margin: 20px auto;
+  margin: 10px auto 5px auto;
   max-width: unset;
+  letter-spacing: unset;
 }
 
 .chart_meta h3 {
   font-size: 16px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #000000;
+  color: #0d0c0f;
   line-height: 1.62;
   max-width: 100%;
   margin-top: 0;
   text-align: left;
   margin-bottom: 0;
   font-weight: normal;
+  letter-spacing: 0;
 }
 
 .barVisual p {
@@ -1773,7 +2224,7 @@ g .domain {
 .barVisual .notes p {
   font-family: 'Inter', Helvetica, sans-serif;
   color: rgb(102, 102, 102);
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .barVisual .hidden {
@@ -1784,9 +2235,9 @@ g .domain {
 .barVisual button {
   background-color: transparent;
   /* Color taken from your bar fill */
-  color: #000;
+  color: #0d0c0f;
   /* White text color */
-  border: solid 2px #051341;
+  border: solid 2px #DB1D08;
   border-radius: 2px;
   /* Rounded corners */
   padding: 10px 15px;
@@ -1808,40 +2259,38 @@ g .domain {
 
 
 .barVisual button.active {
-  background-color: #051341;
+  background-color: #DB1D08;
   color: white;
   /* Slightly darker shade for the active chart's button */
 }
 
 .barVisual button.inactive {
   background-color: transparent;
-  color: #000;
+  color: #0d0c0f;
   /* Black text color */
 }
 
 .barVisual button:hover {
-  background-color: #051341;
-  opacity: 0.7;
+  background-color: #DB1D08;
+  color:white;
+  
   /* Slightly darker shade on hover */
 }
 
 .tooltip {
-
-  border: 1px solid #000;
+  border: 1.5px solid #0d0c0f;
   padding: 4px;
   background-color: white;
-  font-size: 12px;
-  /* Makes sure tooltip content stays in a single line */
+  max-width: 15vh;
 }
 
 .tooltip p {
   text-transform: none;
-  color: #051341;
+  color: #0d0c0f;
   line-height: 1;
   padding: 0;
-
   font-family: 'National', Helvetica, sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   max-width: unset;
   margin: unset;
 }
@@ -1856,7 +2305,7 @@ g .domain {
 .barVisual .axis text {
   font-family: "Arial", sans-serif;
   font-size: 12px;
-  fill: black;
+  fill: #0d0c0f;
 }
 
 /* CHART2 ENDS */
@@ -1865,13 +2314,13 @@ g .domain {
 /* FORCE IMAGE-TABLE STARTS */
 
 .force_image-table {
-  max-width: 75%;
+  max-width: 48%;
   border-collapse: collapse;
-  margin: auto;
+  margin: 30px auto;
 }
 
 .force_image-table td {
-  padding: 15px;
+  padding: 10px;
 }
 
 .force_image-container {
@@ -1890,7 +2339,7 @@ g .domain {
   left: 50%;
   transform: translateX(-50%);
   color: #f2f3f0;
-  font-weight: bold;
+  font-weight: lighter;
   background-color: transparent;
   padding: 2px 5px;
 
@@ -1898,7 +2347,7 @@ g .domain {
 
 
 .force_overlay-number {
-  font-size: 5vw;
+  font-size: 3vw;
   font-family: 'bodycount', cursive;
   top: 45%;
 
@@ -1906,9 +2355,10 @@ g .domain {
 
 
 .force_overlay-text {
-  font-size: 3vw;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 2.5vw;
+  font-family: 'Bebas Neue', 'Arial Narrow', Arial, sans-serif;
   top: 70%;
+  letter-spacing: 0.5px;
 }
 
 
@@ -1923,12 +2373,11 @@ g .domain {
 
 .content {
   --closed-height: 100px;
-
   max-height: var(--max-height, unset);
   transition: max-height 0.2s ease-in-out;
   overflow: hidden;
   line-height: 1.3;
-  padding: 0 10px;
+  padding: 0 0;
 }
 
 @media (min-width: 500px) {
@@ -2011,7 +2460,7 @@ g .domain {
 
 .return-link,
 sup {
-  color: #f43305;
+  color: #DB1D08;
   font-family: 'National', 'Arial Narrow', Arial, sans-serif;
 
 }
@@ -2048,20 +2497,50 @@ code {
 /* RESPONSIVE STARTS */
 
 
-@media screen and (max-width: 912px) and (orientation: portrait) {
 
-.cards {
-  max-width: 50%;
-}
+/* @media screen and (max-width: 2560px) and (orientation: portrait) {
 
-}
-
-
-@media screen and (max-width: 912px) and (orientation: portrait) {
+  .BODY-COUNT {
+    padding-top: 3vw;
+  }
 
   .hero {
-    padding-top: 25vh;
+    padding-top: 50vh;
   }
+
+} */
+
+
+
+@media screen and (min-width: 2100px) {
+
+.bquote-sign {
+  padding: 0 48%;
+}
+
+  blockquote {
+    padding: 0 35%;
+  }
+}
+
+
+
+@media screen and (min-width: 1900px) {
+
+  .author_date,
+  .grids,
+  .quote-container,
+  h2,
+  h3,
+  p {max-width: 33%;}
+
+}
+
+@media screen and (max-width: 912px) and (orientation: portrait) {
+  .cards {
+    max-width: 50%;
+  }
+
 
   .frame .RAB {
     max-width: 45vw;
@@ -2082,20 +2561,20 @@ code {
 
   .frame .overlap-7 {
 
-    top: 22vh;
+    top: 42vh;
     left: 5vw;
     max-width: 25vw;
   }
 
   .frame .overlap-1 {
-    top: 20vh;
-    left: 33vw;
+    top: 25vh;
+    left: 20vw;
     max-width: 25vw;
   }
 
   .frame .overlap-3 {
     top: 55vh;
-    left: 65vw;
+    left: 75vw;
     max-width: 20vw;
   }
 
@@ -2114,7 +2593,7 @@ code {
 
   .frame .overlap-8 {
 
-    top: 35vh;
+    top: 55vh;
     left: 3vw;
     max-width: 22vw;
   }
@@ -2127,12 +2606,12 @@ code {
 
   .frame .group-2 {
     top: 30vh;
-    left: 55vw;
+    left: 30vw;
     max-width: 35vw;
   }
 
   .frame .group-4 {
-    top: 38vh;
+    top: 45vh;
     left: 40vw;
     max-width: 20vw;
   }
@@ -2164,29 +2643,37 @@ code {
   .BODY-COUNT {
     font-size: 8vh;
     line-height: 12vw;
+    padding-top: 75vh;
   }
-
 
 
   .author_date,
   .grids,
+  .quote-container,
   h2,
   h3,
+  #footer-inner,
   p {
-    max-width: 60%;
+    max-width: 80%;
   }
 
-  .table1,
+  .right-card {
+max-width: 45%;
+
+  }
+
+  #table1,
   .numbers {
     max-width: 95% !important;
   }
 
   .ejk_subtitle {
-    max-width: 75%;
+    max-width: 80%;
   }
-
+#scrolly {
+  margin: 0px;
+}
   .central-core {
-
     display: block;
   }
 
@@ -2200,22 +2687,31 @@ code {
     padding-top: 65vh;
 
   }
+
   .numeric {
     font-size: 3rem;
   }
-  
-}
-
-@media screen and (min-width: 801px) and (max-width: 1100px) and (orientation: portrait) {
-  #footer-inner {
-    margin: 0px 20px 0px 20px;
-  }
 
 }
+
+
 
 
 
 @media screen and (max-width: 820px) and (orientation: portrait) {
+
+  .right-card {
+    max-width: 80%;
+    float:unset;
+    margin: 40px auto;
+  }
+
+#footer {
+  padding: 50px 0 10px 0;
+}
+
+  blockquote p,
+  .quote-author span,
   p {
     font-size: 18px;
   }
@@ -2256,7 +2752,7 @@ code {
   }
 
   div.logo {
-    padding: 20px 20px 0px 20px;
+    padding: 20px 0px 0px 0px;
   }
 
   #footer div.logo h2 {
@@ -2273,14 +2769,11 @@ code {
   #footer .list {
     float: none;
     width: 100%;
-    margin-left: 20px;
-    margin-bottom: 18px;
+    margin-left: 30px;
+    margin-bottom: 20px;
     border-top: 0;
   }
 
-  #footer .list:nth-child(3n+1) {
-    margin-left: 20px;
-  }
 
   #footer .list h3 {
     margin: 0;
@@ -2309,14 +2802,10 @@ code {
     line-height: 31px;
   }
 
-  #footer .list ul {
-    font-size: 15px;
-    line-height: 31px;
-  }
+
 
   #footer div.copyright {
     font-size: 17px;
-    padding-left: 20px;
   }
 }
 
@@ -2325,8 +2814,9 @@ code {
 @media screen and (max-width: 768px) and (orientation: portrait) {
 
 
+  blockquote p,
+  .quote-author span,
   p {
-    font-size: 18px;
     line-height: 27px;
   }
 
@@ -2343,13 +2833,13 @@ code {
     margin: 0 auto 2rem auto;
   }
 
-.cards {
-  max-width: 75%;
-}
+  .cards {
+    max-width: 75%;
+  }
 
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   .chart1 {
@@ -2361,12 +2851,10 @@ code {
 
 
 @media screen and (max-width: 540px) and (orientation: portrait) {
-  .hero {
-    padding-top: 30vh;
-  }
+ 
 
   .barVisual {
-    max-width: 90%;
+    max-width: 95%;
     margin: auto;
   }
 
@@ -2379,7 +2867,7 @@ code {
     font-size: 1.4rem;
   }
 
-  .table1 {
+  #table1 {
     font-size: 0.7rem !important;
     margin: auto !important;
   }
@@ -2387,19 +2875,62 @@ code {
   .numeric {
     font-size: 2rem;
   }
+
+.copyright p {
+  font-size: 13px;
 }
 
-@media screen and (max-width: 428px) and (orientation: portrait) {
+#footer div.copyright {
+  padding-top: 20px;
+}
 
-  .cards {
-    max-width: 100%;
+  
+}
+
+@media screen and (max-width: 450px) and (orientation: portrait) {
+
+  .nav1 {
+    max-height: 35px;
   }
 
-  .frame .BODY-COUNT {
+  .nav-logo,  .nav-interactive {
+    height: 25px;
+  }
+
+
+  .nav-interactive  {
+    font-size: 1rem;
+    top: 5px;
+  }
+
+  nav ul {
+    margin: 35px 0;
+  }
+
+
+  .one, .two, .three {
+    height: 2.5px;
+  }
+
+  .one {
+    margin: 7.8px auto 6px auto;
+  }
+
+  .BODY-COUNT {
     font-size: 8vh;
     line-height: 8vh;
   }
 
+
+  .cards {
+    max-width: 99%;
+  }
+
+  .quote-sign {
+    top: 43%;
+  }
+
+  
   .frame .overlap-1 {
     max-width: 29vw;
   }
@@ -2409,7 +2940,7 @@ code {
   }
 
   .frame .overlap-3 {
-
+    left: 65vw;
     max-width: 23vw;
   }
 
@@ -2431,6 +2962,7 @@ code {
 
   .frame .overlap-8 {
     max-width: 24vw;
+    top: 52vh;
   }
 
 
@@ -2461,13 +2993,19 @@ code {
     margin: 0 auto 1rem auto;
   }
 
+  .right-card {
+    max-width: 89%;
+    margin: 20px 5% 20px 4%;
+    float: none;
+  }
+
   .force_image-table td {
     padding: 5px;
   }
 
   #footer div.logo img {
 
-    max-width: 55%;
+    max-width: 35%;
   }
 
   figure {
@@ -2475,25 +3013,45 @@ code {
 
   }
 
-  h2,
-  .ejk_subtitle,
-  .peopleyeartitle {
-    font-size: 1.3rem !important;
-    max-width: 100%;
-  }
 
   .author_date,
   .grids,
   .ejk_subtitle,
   h3,
   h2,
+  .quote-container, #footer-inner,
   p {
-    max-width: 90%;
+    max-width: 91%;
+  }
+
+
+  .ejk_subtitle {
+    font-weight: 300;
+  }
+
+  .ejk_subtitle,
+  .peopleyeartitle {
+    font-size: 1.5rem;
   }
 
   .force_image-table {
-    max-width: 95%;
+    max-width: 100%;
   }
+
+  .force_overlay-number {
+    font-size: 3vh;
+  }
+
+  .force_overlay-text {
+    font-size: 2.5vh;
+  }
+
+  .copyright p {
+    font-size: 11px;
+  }
+
+ 
+
 }
 
 

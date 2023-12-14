@@ -1,3 +1,0 @@
-# ejk
-
-A test project
